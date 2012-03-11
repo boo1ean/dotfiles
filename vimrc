@@ -21,7 +21,7 @@ set encoding=utf8
 
 " Init pathogen
 filetype off
-call pathogen#infect()
+call pathogen#infect('$HOME/.vim/bundle')
 filetype plugin indent on
 
 " Disable some gui elements

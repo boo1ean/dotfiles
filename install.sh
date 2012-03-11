@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 #
-# Author:  boo1ean0807 at gmail dot com
+# Author:  Egor Gumenyuk (boo1ean0807 at gmail dot com)
 # Updated: Sun Mar 11 16:23:10 UTC 2012
 #
 # This script will create necessary directories(if not exist), download useful

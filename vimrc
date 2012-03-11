@@ -1,4 +1,4 @@
-" Author:  boo1ean0807 at gmail dot com
+" Author:  Egor Gumenyuk (boo1ean0807 at gmail dot com)
 " Updated: Sun Mar 11 14:30:21 UTC 2012
 
 

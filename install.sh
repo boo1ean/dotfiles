@@ -7,7 +7,7 @@
 # vim plugins, colorscheme, and configured vimrc.
 #
 # List of plugins: pathogen, fugitive, minibufexpl, NERDTree, NERDCommenter,
-#                  surround, gundo
+#                  surround, gundo, tabular.
 
 separator="\n=========================================\n"
 installed="was successfully installed $separator"
@@ -87,6 +87,13 @@ if [ ! -d ./vim-surround ]; then
   echo "$separator $downloading vim-surround... \n"
   git clone -q git://github.com/tpope/vim-surround.git
   echo " vim-surround $installed"
+fi
+
+# Get tabular
+if [ ! -d ./tabular ]; then
+  echo "$separator $downloading tabular... \n"
+  git clone -q git://github.com/godlygeek/tabular.git
+  echo " tabular $installed"
 fi
 
 # Back to working directory

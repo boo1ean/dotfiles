@@ -96,6 +96,13 @@ if [ ! -d ./tabular ]; then
   echo " tabular $installed"
 fi
 
+# Get snipMate
+if [ ! -d ./snipmate.vim ]; then
+  echo "$separator $downloading snipMate... \n"
+  git clone -q git://github.com/msanders/snipmate.vim.git
+  echo " snipMate $installed"
+fi
+
 # Back to working directory
 cd -
 

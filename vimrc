@@ -31,7 +31,6 @@ set guioptions-=l
 set guioptions-=r
 set guioptions-=b
 
-
 " Enable filetype plugins and disable vi compatibility
 set nocompatible
 filetype on
@@ -108,8 +107,24 @@ set undoreload=10000
 " Show incomplete command on footer
 set showcmd
 
+" Save session by specified key
+function SaveSession(key)
+  wa!
+  execute 'mksession! $HOME/.vim/s_'.a:key.'.vim'
+endfunction
+command -nargs=+ SS call SaveSession(<f-args>)
+
+" Load session by specified key
+function LoadSession(key)
+  execute 'source $HOME/.vim/s_'.a:key.'.vim'
+  only
+  MiniBufExplorer
+endfunction
+command -nargs=+ LS call LoadSession(<f-args>)
+
 " Sudo to write
-cmap w!! w !sudo tee % >/dev/null
+cmap sudow w !sudo tee % >/dev/null
+
 
 " Disable arrow keys
 nnoremap <up>    <nop>
@@ -124,6 +139,9 @@ inoremap <right> <nop>
 " For normal navigation on breaked lines
 nnoremap j gj
 nnoremap k gk
+
+" Go to next buffer (minibufexplorer)
+nnoremap gt :MBEbn<cr>
 
 " Custom whitespaces and tabs view
 set list
@@ -142,54 +160,52 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Toggle NERDTree
-vnoremap <silent> <leader>f :NERDTreeToggle<cr>
 noremap  <silent> <leader>f :NERDTreeToggle<cr>
 
 " Next matching from Qickfix list
-vnoremap <silent> <leader>N :cn<cr>
-noremap  <silent> <leader>N :cn<cr>
+noremap  <silent> <leader>n :cn<cr>
 
 " Prev matching from Qickfix list
-vnoremap <silent> <leader>P :cp<cr>
-noremap  <silent> <leader>P :cp<cr>
+noremap  <silent> <leader>p :cp<cr>
 
 " Next matching tag match
-vnoremap <silent> <leader>n :tnext<cr>
-noremap  <silent> <leader>n :tnext<cr>
+noremap  <silent> <leader>b :tnext<cr>
 
 " Prev matching tag match
-vnoremap <silent> <leader>p :tprevious<cr>
-noremap  <silent> <leader>p :tprevious<cr>
+noremap  <silent> <leader>B :tprevious<cr>
 
 " Grep current word and open QuickFix window
-vnoremap <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
 noremap  <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
 
-" Toggle gundo
-nmap    <silent> <leader>u :GundoToggle<cr>
-vmap    <silent> <leader>u :GundoToggle<cr>
-smap    <silent> <leader>u :GundoToggle<cr>
-xmap    <silent> <leader>u :GundoToggle<cr>
+" Switch between header and cpp
+noremap gh :A<cr>
 
 " Copy\paste through clipboard
-nmap    <silent> <leader>Y "+y
-vmap    <silent> <leader>Y "+y
-smap    <silent> <leader>Y "+y
-xmap    <silent> <leader>Y "+y
+noremap  <silent> <leader>y "+y
+noremap  <silent> <leader>p "+p
 
-nmap    <silent> <leader>P "+p
-vmap    <silent> <leader>P "+p
-smap    <silent> <leader>P "+p
-xmap    <silent> <leader>P "+p
+" Add current file to staging area(fugitive)
+noremap  <silent> <leader>a :Git add %<cr>
+
+" Ultra exit
+noremap  <silent> <leader>q :qa!<cr>
+
+" Toggle gundo
+noremap  <silent> <leader>u :GundoToggle<cr>
 
 " Align blocks separated by ':'
-vmap  <silent> <leader>t :Tabularize /:<cr>
+vnoremap  <silent> <leader>t :Tabularize /:<cr>
 
 " Toggle hlsearch on space
-:nnoremap <silent> <Space> :set hlsearch! hlsearch?<cr>
+nnoremap <silent> <Space> :set hlsearch! hlsearch?<cr>
 
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMapWindowNavVim = 1
+
+" Autoclose preview window(c.vim)
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 
 " Set 256 color terminal
 set t_Co=256

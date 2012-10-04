@@ -1,6 +1,5 @@
-" Author:  Egor Gumenyuk (boo1ean0807 at gmail dot com)
+" Author:  boo1ean0807 at gmail dot com
 " Updated: Sun Mar 11 14:30:21 UTC 2012
-
 
 " Set some system defaults
 runtime! debian.vim
@@ -19,15 +18,47 @@ endif
 set fileencodings=utf8,cp1251
 set encoding=utf8
 
-" Init pathogen
+" Init Vundle
 filetype off
-call pathogen#infect('$HOME/.vim/bundle')
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" snipmate deps
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+
+Bundle 'Lokaltog/vim-powerline'
+Bundle "garbas/vim-snipmate"
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
+Bundle 'matchit.zip'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'gmarik/ide-popup.vim'
+Bundle 'lastpos.vim'
+Bundle 'ctrlp.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'jQuery'
+Bundle 'scrooloose/nerdtree'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
 filetype plugin indent on
 
 " Disable some gui elements
 set guioptions-=m
 set guioptions-=T
 set guioptions-=l
+set guioptions-=L
 set guioptions-=r
 set guioptions-=b
 
@@ -91,8 +122,8 @@ set smartindent
 set colorcolumn=85
 
 " Set tabstop end expad tabs to spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 " Hide tabline
@@ -123,7 +154,7 @@ endfunction
 command -nargs=+ LS call LoadSession(<f-args>)
 
 " Sudo to write
-cmap sudow w !sudo tee % >/dev/null
+"cmap w!! w !sudo tee % >/dev/null
 
 
 " Disable arrow keys
@@ -145,7 +176,7 @@ nnoremap gt :MBEbn<cr>
 
 " Custom whitespaces and tabs view
 set list
-set listchars=trail:·,tab:⟶\ 
+set listchars=trail:·,tab:··
 
 " Set leader button
 let mapleader = ","
@@ -163,38 +194,44 @@ vnoremap <F1> <ESC>
 noremap  <silent> <leader>f :NERDTreeToggle<cr>
 
 " Next matching from Qickfix list
-noremap  <silent> <leader>n :cn<cr>
+noremap  <silent> <leader>b :cn<cr>
 
 " Prev matching from Qickfix list
-noremap  <silent> <leader>p :cp<cr>
+noremap  <silent> <leader>B :cp<cr>
 
 " Next matching tag match
-noremap  <silent> <leader>b :tnext<cr>
+noremap  <silent> <leader>n :tnext<cr>
 
 " Prev matching tag match
-noremap  <silent> <leader>B :tprevious<cr>
+noremap  <silent> <leader>N :tprevious<cr>
 
 " Grep current word and open QuickFix window
-noremap  <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
+"noremap  <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
+
+" Execute FuzzyFinder dir search
+noremap  <leader>g :FufDir<cr>
 
 " Switch between header and cpp
 noremap gh :A<cr>
 
 " Copy\paste through clipboard
-noremap  <silent> <leader>y "+y
-noremap  <silent> <leader>p "+p
+noremap <silent> <leader>y "+y
+noremap <silent> <leader>p "+p
 
 " Add current file to staging area(fugitive)
-noremap  <silent> <leader>a :Git add %<cr>
+noremap <silent> <leader>a :Git add %<cr>
 
 " Ultra exit
-noremap  <silent> <leader>q :qa!<cr>
+noremap <silent> <leader>q :qa!<cr>
 
 " Toggle gundo
-noremap  <silent> <leader>u :GundoToggle<cr>
+noremap <silent> <leader>u :GundoToggle<cr>
 
-" Align blocks separated by ':'
-vnoremap  <silent> <leader>t :Tabularize /:<cr>
+" Align blocks separated by =>
+vnoremap <silent> <leader>t :Tabularize /=><cr>
+
+" Trim spaces from end of line
+vnoremap <silent> <leader>s :s/\s\+$//<cr>
 
 " Toggle hlsearch on space
 nnoremap <silent> <Space> :set hlsearch! hlsearch?<cr>
@@ -202,13 +239,13 @@ nnoremap <silent> <Space> :set hlsearch! hlsearch?<cr>
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMapWindowNavVim = 1
 
-" Autoclose preview window(c.vim)
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-
 " Set 256 color terminal
 set t_Co=256
 
 " Use custom color scheme
 colorscheme wombat256
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey

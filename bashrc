@@ -5,9 +5,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -19,10 +19,6 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -82,25 +78,32 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -atlF'
 alias la='ls -A'
 alias l='ls -CF'
-
-# for tmux: export 256color
-[ -n "$TMUX" ] && export TERM=screen-256color
-
-# Custom aliases
 alias c='clear'
+alias v='vim'
+alias r='rails'
+
 alias bashrc='vim ~/.bashrc'
 alias httpd='sudo vim /etc/apache2/httpd.conf'
-alias vimrc='sudo vim /etc/vim/vimrc'
-alias ce='vim CMakeLists.txt'
-alias gi='git'
-alias ch='chromium-browser'
+alias vimrc='sudo vim ~/.vimrc'
+alias phpini='sudo vim /etc/php5/apache2/php.ini'
+alias my='mysql -u root -p'
+alias hosts='sudo vim /etc/hosts'
+alias res='sudo service apache2 restart'
+alias debug='vim --cmd "let loaded_minibufexplorer = 1"'
+alias dbeaver='/usr/share/dbeaver/dbeaver'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias src='cd ~/src/'
+alias makectags='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .'
+alias ce='vim CMakeLists.txt'
+alias count="git log --pretty=oneline | grep -c ''"
+alias gi="git"
+alias it="git"
+alias gti="git"
+# RVM init
+alias uservm='[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -117,3 +120,4 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+

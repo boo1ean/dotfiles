@@ -51,6 +51,7 @@ Bundle 'jQuery'
 Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'svndiff.vim'
 
 filetype plugin indent on
 
@@ -245,7 +246,11 @@ set t_Co=256
 " Use custom color scheme
 colorscheme wombat256
 
+" Indent guides setup
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
+
+" Turn off auto working path feature (CtrlP)
+let g:ctrlp_working_path_mode = ''

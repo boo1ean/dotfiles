@@ -31,6 +31,7 @@ Bundle 'gmarik/vundle'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
+Bundle "mattn/gist-vim"
 
 Bundle "joonty/vdebug"
 Bundle "godlygeek/tabular"

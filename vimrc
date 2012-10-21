@@ -34,6 +34,9 @@ Bundle "honza/snipmate-snippets"
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
 
+Bundle "kchmck/vim-coffee-script"
+Bundle "pangloss/vim-javascript"
+
 Bundle "joonty/vdebug"
 Bundle "godlygeek/tabular"
 Bundle "Shougo/neocomplcache"

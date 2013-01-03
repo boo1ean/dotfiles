@@ -36,6 +36,7 @@ Bundle "mattn/gist-vim"
 
 Bundle "kchmck/vim-coffee-script"
 Bundle "pangloss/vim-javascript"
+Bundle "tpope/vim-repeat"
 
 Bundle "joonty/vdebug"
 Bundle "godlygeek/tabular"

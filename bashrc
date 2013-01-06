@@ -106,9 +106,6 @@ alias hosts='sudo vim /etc/hosts'
 # Restart apache
 alias res='sudo service apache2 restart'
 
-# Run vim without minibufexpl
-alias debug='vim --cmd "let loaded_minibufexplorer = 1"'
-
 # Run dbeaver (db manager)
 alias dbeaver='/usr/share/dbeaver/dbeaver'
 
@@ -123,6 +120,12 @@ alias ce='vim CMakeLists.txt'
 
 # Number of commits in git repo
 alias count="git log --pretty=oneline | grep -c ''"
+
+# Show all groups
+alias sgroups="cat /etc/group | cut -d: -f1"
+
+# Show all users
+alias susers="cat /etc/passwd | cut -d: -f1"
 
 # Git typo
 alias gi="git"

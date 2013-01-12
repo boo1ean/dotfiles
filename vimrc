@@ -38,6 +38,8 @@ Bundle "kchmck/vim-coffee-script"
 Bundle "pangloss/vim-javascript"
 Bundle "tpope/vim-repeat"
 
+Bundle "lepture/vim-css"
+
 Bundle "joonty/vdebug"
 Bundle "godlygeek/tabular"
 Bundle "Shougo/neocomplcache"
@@ -75,6 +77,9 @@ set guioptions-=b
 set nocompatible
 filetype on
 filetype plugin on
+
+" Dash isn't word separator
+set iskeyword+=-
 
 " Show info in the window title
 set title

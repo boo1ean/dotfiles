@@ -81,6 +81,9 @@ filetype plugin on
 " Dash isn't word separator
 set iskeyword+=-
 
+" Use global clipboard
+set clipboard=unnamedplus
+
 " Show info in the window title
 set title
 

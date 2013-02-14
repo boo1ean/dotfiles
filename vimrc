@@ -37,6 +37,7 @@ Bundle "mattn/gist-vim"
 Bundle "kchmck/vim-coffee-script"
 Bundle "pangloss/vim-javascript"
 Bundle "tpope/vim-repeat"
+Bundle "vim-scripts/mru.vim"
 
 Bundle "lepture/vim-css"
 

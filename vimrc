@@ -83,7 +83,13 @@ filetype plugin on
 set iskeyword+=-
 
 " Use global clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamed
+
+" Always show the statusline
+set laststatus=2
+
+" Automatically reload changes if detected
+set autoread
 
 " Show info in the window title
 set title

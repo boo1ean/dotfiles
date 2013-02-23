@@ -82,8 +82,11 @@ filetype plugin on
 " Dash isn't word separator
 set iskeyword+=-
 
+" Remove preview window
+set completeopt-=preview
+
 " Use global clipboard
-set clipboard+=unnamed
+set clipboard=unnamed
 
 " Always show the statusline
 set laststatus=2

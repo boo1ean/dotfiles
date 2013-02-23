@@ -86,7 +86,7 @@ set iskeyword+=-
 set completeopt-=preview
 
 " Use global clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Always show the statusline
 set laststatus=2

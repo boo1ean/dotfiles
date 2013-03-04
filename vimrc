@@ -220,6 +220,9 @@ vnoremap <F1> <ESC>
 " Toggle NERDTree
 noremap  <silent> <leader>f :NERDTreeToggle<cr>
 
+" Show recent used files
+noremap <silent> <leader>m :Mru<cr>
+
 " Next matching from Qickfix list
 noremap  <silent> <leader>b :cn<cr>
 

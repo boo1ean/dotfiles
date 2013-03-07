@@ -84,6 +84,7 @@ alias l='ls -CF'
 alias c='clear'
 alias v='vim'
 alias r='rails'
+alias sharef='python -m SimpleHTTPServer 8080'
 
 # Edit bashrc
 alias bashrc='vim ~/.bashrc'
@@ -234,3 +235,9 @@ function svn
 		eval $(which svn) $CMD
 	fi
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Custom bash prompt via kirsle.net/wizards/ps1.html
+export PS1="\[$(tput setaf 6)\]\w \[$(tput setaf 1)\]#\[$(tput sgr0)\] "

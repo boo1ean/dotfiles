@@ -95,6 +95,9 @@ alias httpd='sudo vim /etc/apache2/httpd.conf'
 # Edit vimrc
 alias vimrc='vim ~/.vimrc'
 
+# Apache2 default error log
+alias aer="tail -n 20 /var/log/apache2/error.log"
+
 # Edit php.ini file
 alias phpini='sudo vim /etc/php5/apache2/php.ini'
 

@@ -2,7 +2,7 @@
 " Maintainer:   David Liang (bmdavll at gmail dot com)
 " Last Change:  November 28 2008
 "
-" Colors Update: Egor Gumenyuk (boo1ean0807 at gmail dot com)
+" Colors Update: boo1ean0807 at gmail dot com
 " At:            Sun Mar 11 15:35:38 UTC 2012
 "
 " wombat256.vim - a modified version of Wombat by Lars Nielsen that also

@@ -200,10 +200,6 @@ nnoremap k gk
 " Go to next buffer (minibufexplorer)
 nnoremap gt :MBEbn<cr>
 
-" Custom whitespaces and tabs view
-set list
-set listchars=trail:·,tab:··
-
 " Set leader button
 let mapleader = ","
 

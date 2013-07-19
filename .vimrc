@@ -30,7 +30,6 @@ Bundle 'gmarik/vundle'
 " snipmate deps
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
 

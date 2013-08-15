@@ -62,6 +62,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'svndiff.vim'
+Bundle 'PHPUnit-QF'
 
 filetype plugin indent on
 
@@ -164,24 +165,13 @@ set undoreload=10000
 " Show incomplete command on footer
 set showcmd
 
-" Save session by specified key
-function SaveSession(key)
-  wa!
-  execute 'mksession! $HOME/.vim/s_'.a:key.'.vim'
-endfunction
-command -nargs=+ SS call SaveSession(<f-args>)
-
-" Load session by specified key
-function LoadSession(key)
-  execute 'source $HOME/.vim/s_'.a:key.'.vim'
-  only
-  MiniBufExplorer
-endfunction
-command -nargs=+ LS call LoadSession(<f-args>)
-
 " Sudo to write
 "cmap w!! w !sudo tee % >/dev/null
 
+cnoreabbrev test Test
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+cnoreabbrev WQ wq
 
 " Disable arrow keys
 nnoremap <up>    <nop>
@@ -199,6 +189,10 @@ nnoremap k gk
 
 " Go to next buffer (minibufexplorer)
 nnoremap gt :MBEbn<cr>
+
+" Custom whitespaces and tabs view
+set list
+set listchars=trail:·,tab:··
 
 " Set leader button
 let mapleader = ","
@@ -231,17 +225,10 @@ noremap  <silent> <leader>n :tnext<cr>
 noremap  <silent> <leader>N :tprevious<cr>
 
 " Grep current word and open QuickFix window
-"noremap  <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
-
-" Execute FuzzyFinder dir search
-noremap  <leader>g :FufDir<cr>
+noremap  <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
 
 " Switch between header and cpp
 noremap gh :A<cr>
-
-" Copy\paste through clipboard
-noremap <silent> <leader>y "+y
-noremap <silent> <leader>p "+p
 
 " Add current file to staging area(fugitive)
 noremap <silent> <leader>a :Git add %<cr>

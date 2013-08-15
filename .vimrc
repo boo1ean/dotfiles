@@ -169,6 +169,7 @@ set showcmd
 "cmap w!! w !sudo tee % >/dev/null
 
 cnoreabbrev test Test
+cnoreabbrev t Test
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 cnoreabbrev WQ wq

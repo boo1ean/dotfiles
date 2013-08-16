@@ -32,6 +32,7 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
+Bundle "garbas/vim-snipmate"
 
 Bundle "kchmck/vim-coffee-script"
 Bundle "pangloss/vim-javascript"

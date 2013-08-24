@@ -32,7 +32,7 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
-Bundle "garbas/vim-snipmate"
+Bundle "msanders/snipmate.vim"
 
 Bundle "kchmck/vim-coffee-script"
 Bundle "pangloss/vim-javascript"
@@ -46,7 +46,6 @@ Bundle "godlygeek/tabular"
 Bundle "Shougo/neocomplcache"
 Bundle "scrooloose/syntastic"
 Bundle 'Lokaltog/vim-powerline'
-Bundle "garbas/vim-snipmate"
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup'
 Bundle 'tpope/vim-fugitive'
@@ -152,7 +151,6 @@ set colorcolumn=85
 " Set tabstop end expad tabs to spaces
 set tabstop=4
 set shiftwidth=4
-set expandtab
 
 " Hide tabline
 set showtabline=0

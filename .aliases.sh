@@ -10,6 +10,9 @@ alias psa="ps aux | grep "
 # Multi column ls with / for dirs
 alias l="ls -CF"
 
+# List couple recently changed files
+alias lt="ls -lt | head"
+
 # Clear screen
 alias c="clear"
 

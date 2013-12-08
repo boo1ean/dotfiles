@@ -1,8 +1,8 @@
 server {
 	listen 0.0.0.0:80;
-	server_name ____example.com____;
-	access_log ____/var/log/nginx/site.log____;
-	root ____/var/www/site____;
+	server_name ____example.com;
+	access_log ____/var/log/nginx/site.log;
+	root ____/var/www/site;
 
 	gzip on;
 	gzip_http_version 1.1;
@@ -18,6 +18,6 @@ server {
 	}
 
 	location /favicon.ico {
-		alias ____/var/www/site/favicon.ico____;
+		alias ____/var/www/site/favicon.ico;
 	}
 }

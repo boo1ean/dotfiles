@@ -5,7 +5,7 @@ upstream ____example.com {
 
 server {
 	listen 0.0.0.0:80;
-	server_name _____example.com;
+	server_name example.com; #TODO
 
 	# Pass the request to the node.js server with the correct headers and much more can be added, see nginx config options
 	location / {
@@ -21,7 +21,7 @@ server {
 		proxy_set_header Upgrade $http_upgrade;
 		proxy_set_header Connection "upgrade";
 
-		proxy_pass http://____example.com/;
+		proxy_pass http://example.com/; #TODO
 		proxy_redirect off;
 
 		tcp_nodelay on;

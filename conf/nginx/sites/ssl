@@ -1,7 +1,7 @@
 server {
 	listen       443;
-	server_name  _____example.com;
-	root         _____/var/www/site;
+	server_name  example.com; #TODO
+	root         /var/www/site; #TODO
 
 	ssl                  on;
 	ssl_certificate      ssl/localhost.crt;

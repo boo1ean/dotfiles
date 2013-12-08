@@ -2,31 +2,31 @@
 	br = branch
 	st = status
 	co = checkout
-    up  = !git stash && git fetch && git rebase origin/master && git stash pop
-    di  = diff --cached
-    fix = !vim $(git-ls-files --unmerged | cut -f2 | uniq)
-    pend = log origin/master..HEAD
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	up  = !git stash && git fetch && git rebase origin/master && git stash pop
+	di  = diff --cached
+	fix = !vim $(git-ls-files --unmerged | cut -f2 | uniq)
+	pend = log origin/master..HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [user]
 	name = boo1ean
 	email = boo1ean0807@gmail.com
 [color]
-    ui = true
+	ui = true
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 [web]
 	browser = chromium-browser
 [github]
 	name = boo1ean
 	user = boo1ean
 [core]
-    pager = less -FR
-    excludesfiles = .*.swo .*.swp
+	pager = less -FR
+	excludesfiles = .*.swo .*.swp
 	editor = vim

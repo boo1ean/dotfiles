@@ -1,11 +1,14 @@
 # Node app
-upstream ____example.com {
+upstream example.com { #TODO
 	server 127.0.0.1:3000;
 }
 
 server {
 	listen 0.0.0.0:80;
 	server_name example.com; #TODO
+
+	access_log logs/example.access.log; #TODO
+	error_log  logs/example.error.log; #TODO
 
 	# Pass the request to the node.js server with the correct headers and much more can be added, see nginx config options
 	location / {

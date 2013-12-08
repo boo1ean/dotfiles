@@ -1,8 +1,10 @@
 server {
 	listen 0.0.0.0:80;
 	server_name example.com; #TODO
-	access_log /var/log/nginx/site.log; #TODO
 	root /var/www/site; #TODO
+
+	access_log logs/example.access.log; #TODO
+	error_log  logs/example.error.log; #TODO
 
 	gzip on;
 	gzip_http_version 1.1;

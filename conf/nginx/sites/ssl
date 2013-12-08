@@ -3,6 +3,9 @@ server {
 	server_name  example.com; #TODO
 	root         /var/www/site; #TODO
 
+	access_log logs/example.access.log; #TODO
+	error_log  logs/example.error.log; #TODO
+
 	ssl                  on;
 	ssl_certificate      ssl/localhost.crt;
 	ssl_certificate_key  ssl/localhost.key;

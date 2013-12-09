@@ -85,8 +85,11 @@ set iskeyword+=-
 " Remove preview window
 set completeopt-=preview
 
+" Restore normal backspace behaviour
+set backspace=indent,eol,start
+
 " Use global clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Always show the statusline
 set laststatus=2
@@ -188,7 +191,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Go to next buffer (minibufexplorer)
-nnoremap gt :MBEbn<cr>
+nnoremap gt :bn<cr>
 
 " Custom whitespaces and tabs view
 set list

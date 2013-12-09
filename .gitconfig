@@ -21,8 +21,10 @@
 	frag = magenta bold
 	old = red bold
 	new = green bold
+[diff]
+	tool = vimdiff
 [web]
-	browser = chromium-browser
+	browser = google-chrome
 [github]
 	name = boo1ean
 	user = boo1ean

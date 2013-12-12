@@ -176,6 +176,15 @@ cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 cnoreabbrev WQ wq
 
+" Windows navigation
+nnoremap <silent> <C-h> :wincmd h<cr>
+nnoremap <silent> <C-j> :wincmd j<cr>
+nnoremap <silent> <C-k> :wincmd k<cr>
+nnoremap <silent> <C-l> :wincmd l<cr>
+
+" This sets the minimum window height to N
+set wmh=0
+
 " Disable arrow keys
 nnoremap <up>    <nop>
 nnoremap <down>  <nop>
@@ -281,7 +290,6 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
     \ }
 
 " Define keyword.

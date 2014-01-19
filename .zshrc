@@ -54,7 +54,7 @@ export HOMEBREW_GITHUB_API_TOKEN="AUTH_TOKEN" # TODO
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/etc/node/bin"
 
 # Fire some scripts
-source $HOME/.aliases.sh
+source $HOME/.aliases
 source /usr/local/etc/profile.d/z.sh # TODO
 
 # export MANPATH="/usr/local/man:$MANPATH"

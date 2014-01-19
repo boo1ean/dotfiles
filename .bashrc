@@ -77,75 +77,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -atlF'
-alias la='ls -A'
-alias l='ls -CF'
-alias c='clear'
-alias v='vim'
-alias r='rails'
-alias sharef='python -m SimpleHTTPServer 8080'
-
-# Edit bashrc
-alias bashrc='vim ~/.bashrc'
-
-# Edit vhosts
-alias httpd='sudo vim /etc/apache2/httpd.conf'
-
-# Edit vimrc
-alias vimrc='vim ~/.vimrc'
-
-# Apache2 default error log
-alias aer="tail -n 20 /var/log/apache2/error.log"
-
-# Edit php.ini file
-alias phpini='sudo vim /etc/php5/apache2/php.ini'
-
-# Log in to mysql console
-alias my='mysql -u root -p'
-
-# Edit hosts file
-alias hosts='sudo vim /etc/hosts'
-
-# Restart apache
-alias res='sudo service apache2 restart'
-
-# Run dbeaver (db manager)
-alias dbeaver='/usr/share/dbeaver/dbeaver'
-
-# Go to src
-alias src='cd ~/src/'
-
-# Generate ctags
-alias makectags='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .'
-
-# Open CMakeLists.txt in vim
-alias ce='vim CMakeLists.txt'
-
-# Number of commits in git repo
-alias count="git log --pretty=oneline | grep -c ''"
-
-# Show all groups
-alias sgroups="cat /etc/group | cut -d: -f1"
-
-# Show all users
-alias susers="cat /etc/passwd | cut -d: -f1"
-
-# Git typo
-alias gi="git"
-alias it="git"
-alias gti="git"
-
-# RVM init
-alias uservm='[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 # enable programmable completion features (you don't need to enable

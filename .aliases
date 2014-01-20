@@ -66,3 +66,6 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 # Init RVM
 alias uservm='[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
+
+# Use Europe npm registry
+alias npm="npm --registry http://registry.npmjs.eu"

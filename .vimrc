@@ -60,9 +60,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'jQuery'
 Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
-Bundle 'FuzzyFinder'
 Bundle 'svndiff.vim'
-Bundle 'PHPUnit-QF'
 
 filetype plugin indent on
 

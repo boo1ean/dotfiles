@@ -181,4 +181,4 @@ function svn
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$(tput setaf 6)\]\w \[$(tput setaf 1)\]#\[$(tput sgr0)\] "
+export PS1="\[$(tput setaf 3)\]\u \[$(tput setaf 7)\]at \[$(tput setaf 3)\]\h \[$(tput setaf 6)\]\w \[$(tput setaf 1)\]#\[$(tput sgr0)\] "

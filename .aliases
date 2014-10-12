@@ -69,3 +69,17 @@ alias uservm='[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
 
 # Use Europe npm registry
 alias npm="npm --registry http://registry.npmjs.eu"
+
+##### Docker #####
+
+# Kill all running containers.
+alias dockerkill='docker kill $(docker ps -a -q)'
+ 
+# Delete all stopped containers.
+alias dockercleanc='docker rm $(docker ps -a -q)'
+ 
+# Delete all untagged images.
+alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
+ 
+# Delete all stopped containers and untagged images.
+alias dockerclean='dockercleanc || true && dockercleani'

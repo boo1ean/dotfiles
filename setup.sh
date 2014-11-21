@@ -21,6 +21,7 @@ apt-get install -y \
 	vim \
 	git \
 	nginx-full \
+	postgresql-9.3 \
 	postgresql-server-dev-9.3 \
 	postgresql-client-9.3
 
@@ -33,7 +34,6 @@ mv dotfiles/.tmux.conf ./
 mv dotfiles/.vimrc     ./
 mv dotfiles/.zshrc     ./
 mv dotfiles/.vim       ./
-mv dotfiles/conf/postgres/pg_hba.conf /etc/postgres/9.3/main/
 
 rm -rf dotfiles
 

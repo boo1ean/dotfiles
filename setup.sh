@@ -21,6 +21,8 @@ apt-get install -y \
 	vim \
 	git \
 	nginx-full \
+	make \
+	g++ \
 	postgresql-9.3 \
 	postgresql-server-dev-9.3 \
 	postgresql-client-9.3

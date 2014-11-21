@@ -25,14 +25,16 @@ apt-get install -y \
 
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git
-mv dotfiles/.aliases   ~/
-mv dotfiles/.bashrc    ~/
-mv dotfiles/.gitconfig ~/
-mv dotfiles/.tmux.conf ~/
-mv dotfiles/.vimrc     ~/
-mv dotfiles/.zshrc     ~/
-mv dotfiles/.vim       ~/
+mv dotfiles/.aliases   ./
+mv dotfiles/.bashrc    ./
+mv dotfiles/.gitconfig ./
+mv dotfiles/.tmux.conf ./
+mv dotfiles/.vimrc     ./
+mv dotfiles/.zshrc     ./
+mv dotfiles/.vim       ./
 
 rm -rf dotfiles
 
 vim +BundleInstall +qall
+
+chown $SUDO_USER:$SUDO_USER -R ./

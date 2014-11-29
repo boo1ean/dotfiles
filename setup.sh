@@ -20,6 +20,7 @@ apt-get install -y \
 	tmux \
 	vim \
 	git \
+	silversearcher-ag \
 	nginx-full \
 	make \
 	g++ \

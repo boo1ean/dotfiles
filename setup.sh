@@ -20,6 +20,8 @@ apt-get install -y \
 	tmux \
 	vim \
 	git \
+	ncdu \
+	vifm \
 	silversearcher-ag \
 	nginx-full \
 	make \

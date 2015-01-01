@@ -23,6 +23,7 @@ apt-get install -y \
 	ncdu \
 	vifm \
 	silversearcher-ag \
+	redis-server \
 	nginx-full \
 	make \
 	g++ \

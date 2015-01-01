@@ -33,6 +33,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
 Bundle "msanders/snipmate.vim"
+Bundle "gorkunov/smartpairs.vim"
 
 Bundle "kchmck/vim-coffee-script"
 Bundle "pangloss/vim-javascript"

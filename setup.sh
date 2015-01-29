@@ -45,4 +45,9 @@ rm -rf dotfiles
 
 vim +BundleInstall +qall
 
+wget http://nodejs.org/dist/v0.10.36/node-v0.10.36-linux-x64.tar.gz
+tar -xvf node-v0.10.36-linux-x64.tar.gz
+
+echo 'export PATH="$PATH:/root/node-v0.10.36-linux-x64/bin' >> ~/.bashrc
+
 chown $SUDO_USER:$SUDO_USER -R ./

@@ -1,7 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -32,11 +28,6 @@ fi
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -69,8 +60,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -78,12 +67,13 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.aliases ]; then
     . ~/.aliases
+fi
+
+if [ -f ~/.env ]; then
+    . ~/.env
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -92,93 +82,3 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-# Colorful svn client
-function svn
-{
-	# rebuild args to get quotes right
-	CMD=
-	for i in "$@"
-	do
-		if [[ "$i" =~ \  ]]
-		then
-			CMD="$CMD \"$i\""
-		else
-			CMD="$CMD $i"
-		fi
-	done
-
-	# pad with spaces to strip --nocol
-	CMD=" $CMD "
-	CMDLEN=${#CMD}
-
-	# parse disabling arg
-	CMD="${CMD/ --nocol / }"
-
-	# check if disabled
-	test "$CMDLEN" = "${#CMD}"
-	NOCOL=$?
-	if [ "$SVN_COLOR" != "always" ] && ( [ $NOCOL = 1 ] || [ "$SVN_COLOR" = "never" ] || [ ! -t 1 ] )
-	then
-		eval $(which svn) $CMD
-		return
-	fi
-
-	# supported svn actions for "status-like" output
-	ACTIONS="add|checkout|co|cp|del|export|remove|rm|st"
-	ACTIONS="$ACTIONS|merge|mkdir|move|mv|ren|sw|up"
-
-	# actions that outputs "status-like" data
-	if [[ "$1" =~ ^($ACTIONS) ]]
-	then
-		eval $(which svn) $CMD | while IFS= read -r RL
-		do
-			if   [[ $RL =~ ^\ ?M ]]; then C="\033[34m";
-			elif [[ $RL =~ ^\ ?C ]]; then C="\033[41m\033[37m\033[1m";
-			elif [[ $RL =~ ^A ]]; then C="\033[32m\033[1m";
-			elif [[ $RL =~ ^D ]]; then C="\033[31m\033[1m";
-			elif [[ $RL =~ ^X ]]; then C="\033[37m";
-			elif [[ $RL =~ ^! ]]; then C="\033[43m\033[37m\033[1m";
-			elif [[ $RL =~ ^I ]]; then C="\033[33m";
-			elif [[ $RL =~ ^R ]]; then C="\033[35m";
-			else C=
-			fi
-
-			echo -e "$C${RL/\\/\\\\}\033[0m\033[0;0m"
-		done
-
-	# actions that outputs "diff-like" data
-	elif [[ "$1" =~ ^diff ]]
-	then
-		eval $(which svn) $CMD | while IFS= read -r RL
-		do
-			if   [[ $RL =~ ^Index:\  ]]; then C="\033[34m\033[1m";
-			elif [[ $RL =~ ^@@ ]]; then C="\033[37m";
-
-			# removed
-			elif [[ $RL =~ ^-\<\<\< ]]; then C="\033[31m\033[1m";
-			elif [[ $RL =~ ^-\>\>\> ]]; then C="\033[31m\033[1m";
-			elif [[ $RL =~ ^-=== ]]; then C="\033[31m\033[1m";
-			elif [[ $RL =~ ^- ]]; then C="\033[31m";
-
-			# added
-			elif [[ $RL =~ ^\+\<\<\< ]]; then C="\033[32m\033[1m";
-			elif [[ $RL =~ ^\+\>\>\> ]]; then C="\033[32m\033[1m";
-			elif [[ $RL =~ ^\+=== ]]; then C="\033[32m\033[1m";
-			elif [[ $RL =~ ^\+ ]]; then C="\033[32m";
-
-			else C=
-			fi
-
-			echo -e "$C${RL/\\/\\\\}\033[0m\033[0;0m"
-		done
-	else
-		eval $(which svn) $CMD
-	fi
-}
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$(tput setaf 3)\]\u \[$(tput setaf 7)\]at \[$(tput setaf 3)\]\h \[$(tput setaf 6)\]\w \[$(tput setaf 1)\]#\[$(tput sgr0)\] "

@@ -74,3 +74,10 @@ alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
  
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+# Edial all files with vim
+vimall() {
+	find . -name "$1" | xargs -o vim
+}
+
+alias vimall=vimall

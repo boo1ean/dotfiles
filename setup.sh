@@ -39,6 +39,7 @@ mv dotfiles/.gitconfig ./
 mv dotfiles/.tmux.conf ./
 mv dotfiles/.vimrc     ./
 mv dotfiles/.zshrc     ./
+mv dotfiles/.env       ./
 mv dotfiles/.vim       ./
 
 rm -rf dotfiles

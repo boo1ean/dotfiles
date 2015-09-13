@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-# setup dotdeb repos
-#
-# wget http://www.dotdeb.org/dotdeb.gpg
-# apt-key add dotdeb.gpg
-# rm dotdeb.gpg
-# 
-# echo "deb http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list.d/dotdeb.list
-# echo "deb-src http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list.d/dotdeb.list
-
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -44,11 +35,11 @@ mv dotfiles/.vim       ./
 
 rm -rf dotfiles
 
-vim +BundleInstall +qall
-
-wget http://nodejs.org/dist/v0.10.36/node-v0.10.36-linux-x64.tar.gz
-tar -xvf node-v0.10.36-linux-x64.tar.gz
-
-echo 'export PATH="$PATH:/root/node-v0.10.36-linux-x64/bin' >> ~/.bashrc
+# Install node
+wget https://nodejs.org/dist/v4.0.0/node-v4.0.0-linux-x64.tar.gz
+tar -xvf node-v4.0.0-linux-x64.tar.gz
+rm node-v4.0.0-linux-x64.tar.gz
 
 chown $SUDO_USER:$SUDO_USER -R ./
+
+vim +BundleInstall +qall

@@ -36,9 +36,8 @@ mv dotfiles/.vim       ./
 rm -rf dotfiles
 
 # Install node
-wget https://nodejs.org/dist/v4.0.0/node-v4.0.0-linux-x64.tar.gz
-tar -xvf node-v4.0.0-linux-x64.tar.gz
-rm node-v4.0.0-linux-x64.tar.gz
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+nvm install stable
 
 chown $SUDO_USER:$SUDO_USER -R ./
 

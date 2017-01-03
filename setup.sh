@@ -32,6 +32,7 @@ mv dotfiles/.vimrc     ./
 mv dotfiles/.zshrc     ./
 mv dotfiles/.env       ./
 mv dotfiles/.vim       ./
+mv dotfiles/.z.sh      ./
 
 rm -rf dotfiles
 

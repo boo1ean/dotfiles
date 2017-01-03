@@ -7,7 +7,7 @@ ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
 
 # Red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Show in the command execution time stamp in the history command output.
 HIST_STAMPS="mm/dd/yyyy"
@@ -22,4 +22,8 @@ source $ZSH/oh-my-zsh.sh
 # Fire some scripts
 source $HOME/.aliases
 source $HOME/.env
-source /usr/local/etc/profile.d/z.sh # TODO
+source $HOME/.z.sh
+
+export NVM_DIR="/Users/boo1ean/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use 7

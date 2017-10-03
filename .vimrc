@@ -20,48 +20,39 @@ set encoding=utf8
 
 " Init Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " snipmate deps
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "mattn/webapi-vim"
-Bundle "mattn/gist-vim"
-Bundle "msanders/snipmate.vim"
-Bundle "gorkunov/smartpairs.vim"
+Plugin 'othree/html5.vim'
+Plugin 'gorkunov/smartpairs.vim'
+Plugin 'posva/vim-vue'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/mru.vim'
+Plugin 'lepture/vim-css'
+Plugin 'godlygeek/tabular'
+Plugin 'Shougo/neocomplcache'
+Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'rstacruz/sparkup'
+Plugin 'tpope/vim-fugitive'
+Plugin 'matchit.zip'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'lastpos.vim'
+Plugin 'ctrlp.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/nerdtree'
+Plugin 'L9'
 
-Bundle "kchmck/vim-coffee-script"
-Bundle "pangloss/vim-javascript"
-Bundle "tpope/vim-repeat"
-Bundle "vim-scripts/mru.vim"
-
-Bundle "lepture/vim-css"
-
-Bundle "joonty/vdebug"
-Bundle "godlygeek/tabular"
-Bundle "Shougo/neocomplcache"
-Bundle "scrooloose/syntastic"
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup'
-Bundle 'tpope/vim-fugitive'
-Bundle 'matchit.zip'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'lastpos.vim'
-Bundle 'ctrlp.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'jQuery'
-Bundle 'scrooloose/nerdtree'
-Bundle 'L9'
-Bundle 'svndiff.vim'
+call vundle#end()
 
 filetype plugin indent on
 
@@ -74,7 +65,6 @@ set guioptions-=r
 set guioptions-=b
 
 " Enable filetype plugins and disable vi compatibility
-set nocompatible
 filetype on
 filetype plugin on
 
@@ -169,8 +159,6 @@ set showcmd
 " Sudo to write
 "cmap w!! w !sudo tee % >/dev/null
 
-cnoreabbrev test Test
-cnoreabbrev t Test
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 cnoreabbrev WQ wq
@@ -223,35 +211,11 @@ noremap  <silent> <leader>f :NERDTreeToggle<cr>
 " Show recent used files
 noremap <silent> <leader>m :Mru<cr>
 
-" Next matching from Qickfix list
-noremap  <silent> <leader>b :cn<cr>
-
-" Prev matching from Qickfix list
-noremap  <silent> <leader>B :cp<cr>
-
-" Next matching tag match
-noremap  <silent> <leader>n :tnext<cr>
-
-" Prev matching tag match
-noremap  <silent> <leader>N :tprevious<cr>
-
-" Grep current word and open QuickFix window
-noremap  <leader>g :execute 'vimgrep /'.expand('<cword>').'/ **'<cr>:cw<cr><C-w>t<C-w>j
-
-" Switch between header and cpp
-noremap gh :A<cr>
-
-" Add current file to staging area(fugitive)
-noremap <silent> <leader>a :Git add %<cr>
-
 " Ultra exit
 noremap <silent> <leader>q :qa!<cr>
 
 " Toggle gundo
 noremap <silent> <leader>u :GundoToggle<cr>
-
-" Align blocks separated by =>
-vnoremap <silent> <leader>t :Tabularize /=><cr>
 
 " Trim spaces from end of line
 vnoremap <silent> <leader>s :s/\s\+$//<cr>
@@ -313,6 +277,8 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+let g:jsx_ext_required = 0
 
 " Detect filetype for gist from the filename
 let g:gist_detect_filetype = 1

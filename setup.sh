@@ -5,6 +5,8 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+cd $HOME
+
 # install system-wide stuff
 apt update
 apt install -y software-properties-common
@@ -26,13 +28,13 @@ apt install -y \
 git clone https://github.com/boo1ean/dotfiles.git
 
 # setup vim folders and theme
-mkdir -p ~/.vim/undodir
-mkdir ~/.vim/colors
-mv dotfiles/wombat256.vim ~/.vim/colors/
+mkdir -p $HOME/.vim/undodir
+mkdir $HOME/.vim/colors
+mv dotfiles/wombat256.vim $HOME/.vim/colors/
 
 # setup i3
-mkdir -p ~/.config/i3
-mv dotfiles/i3/* ~/.config/i3/
+mkdir -p $HOME/.config/i3
+mv dotfiles/i3/* $HOME/.config/i3/
 
 # copy dotfiles
 mv dotfiles/.aliases   ./
@@ -49,7 +51,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Install node version manager
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-nvm install stable
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 chown $SUDO_USER:$SUDO_USER -R ./
 

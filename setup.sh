@@ -36,6 +36,13 @@ mv dotfiles/wombat256.vim $HOME/.vim/colors/
 mkdir -p $HOME/.config/i3
 mv dotfiles/i3/* $HOME/.config/i3/
 
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install node version manager
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
+
 # copy dotfiles
 mv dotfiles/.aliases   ./
 mv dotfiles/.gitconfig ./
@@ -46,15 +53,8 @@ mv dotfiles/.vim       ./
 mv dotfiles/.z.sh      ./
 rm -rf dotfiles
 
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Install node version manager
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
-
 chown $SUDO_USER:$SUDO_USER -R ./
 
 # setup vim
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-vim +BundleInstall +qall
+nvim +BundleInstall +qall

@@ -43,13 +43,6 @@ rm get-pip.py
 
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git
-
-# setup vim
-mv dotfiles/.config/nvim/colors/wombat256.vim $VIM_HOME/colors/
-mv dotfiles/.config/nvim/init.vim $VIM_HOME/
-git clone https://github.com/VundleVim/Vundle.vim.git $VIM_HOME/bundle/Vundle.vim
-nvim +PluginInstall +qall || true
-
 # setup i3
 mv dotfiles/.config/i3/* $I3_HOME/
 
@@ -69,4 +62,8 @@ mv dotfiles/.env       ./
 mv dotfiles/.z.sh      ./
 rm -rf dotfiles
 
-chown $SUDO_USER:$SUDO_USER -R ./
+# setup vim
+mv dotfiles/.config/nvim/colors/wombat256.vim $VIM_HOME/colors/
+mv dotfiles/.config/nvim/init.vim $VIM_HOME/
+git clone https://github.com/VundleVim/Vundle.vim.git $VIM_HOME/bundle/Vundle.vim
+nvim +PluginInstall +qall && chown $SUDO_USER:$SUDO_USER -R ./ && echo 'IM FINE'

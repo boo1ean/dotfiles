@@ -58,6 +58,12 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 # Kill all running containers.
 alias dockerkill='docker kill $(docker ps -a -q)'
- 
+
+# Delete all stopped containers.
+alias dockercleanc='docker rm $(docker ps -a -q)'
+
+# Delete all untagged images.
+alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
+
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'

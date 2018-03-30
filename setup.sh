@@ -49,7 +49,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git $VIM_HOME/bundle/Vundle.vi
 nvim +PluginInstall +qall
 
 # setup i3
-mv dotfiles/i3/* $I3_HOME/
+mv dotfiles/.config/i3/* $I3_HOME/
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

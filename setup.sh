@@ -7,9 +7,14 @@ fi
 
 # install system-wide stuff
 apt update
+apt install -y software-properties-common
+add-apt-repository ppa:neovim-ppa/stable
+
+apt update
 apt install -y \
 	curl \
-	vim \
+	neovim \
+	zsh \
 	git \
 	silversearcher-ag \
 	make \

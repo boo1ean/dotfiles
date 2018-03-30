@@ -9,6 +9,11 @@ cd $HOME
 VIM_HOME=$HOME/.config/nvim
 I3_HOME=$HOME/.config/i3
 
+mkdir $HOME/screenshots
+mkdir -p $VIM_HOME/undodir
+mkdir $VIM_HOME/colors
+mkdir -p $I3_HOME
+
 # install system-wide stuff
 apt update
 apt install -y software-properties-common
@@ -23,26 +28,27 @@ apt install -y \
 	silversearcher-ag \
 	make \
 	g++ \
+	scrot \
 	i3 \
+	xclip \
 	docker.io \
 
+# install pip
 curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 python3.5 get-pip.py
+python2.7 get-pip.py
 rm get-pip.py
 
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git
 
 # setup vim
-mkdir -p $VIM_HOME/undodir
-mkdir $VIM_HOME/colors
 mv dotfiles/.config/nvim/colors/wombat256.vim $VIM_HOME/colors/
 mv dotfiles/.config/nvim/init.vim $VIM_HOME/
 git clone https://github.com/VundleVim/Vundle.vim.git $VIM_HOME/bundle/Vundle.vim
 nvim +PluginInstall +qall
 
 # setup i3
-mkdir -p $I3_HOME
 mv dotfiles/i3/* $I3_HOME/
 
 # install oh-my-zsh

@@ -6,38 +6,34 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # install system-wide stuff
-apt-get update
-apt-get install -y \
-	tmux \
+apt update
+apt install -y \
+	curl \
 	vim \
 	git \
-	ncdu \
-	vifm \
 	silversearcher-ag \
-	redis-server \
-	nginx-full \
 	make \
 	g++ \
-	postgresql-9.3 \
-	postgresql-server-dev-9.3 \
-	postgresql-client-9.3
+	docker.io \
 
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git
+
+# copy dotfiles
 mv dotfiles/.aliases   ./
-mv dotfiles/.bashrc    ./
 mv dotfiles/.gitconfig ./
-mv dotfiles/.tmux.conf ./
 mv dotfiles/.vimrc     ./
 mv dotfiles/.zshrc     ./
 mv dotfiles/.env       ./
 mv dotfiles/.vim       ./
 mv dotfiles/.z.sh      ./
-
 rm -rf dotfiles
 
-# Install node
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install node version manager
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 nvm install stable
 
 chown $SUDO_USER:$SUDO_USER -R ./

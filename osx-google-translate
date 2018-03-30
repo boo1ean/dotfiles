@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-TITLE="translation"
-text=$(pbpaste | sed "s/[\"'<>]//g")
-encodedText=$(php -r "echo urlencode(\"$text\");")
-url="http://translate.google.com/translate_a/t?client=t&text=$encodedText&sl=auto&tl=ru"
-response=$(curl -A "Mozilla/5.0" -s $url)
-result=$(echo $response | sed 's/\[\[\[\"//' | cut -d \" -f 1)
-
-osascript -e "display notification \"$result\" with title \"$TITLE\""

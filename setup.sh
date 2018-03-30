@@ -19,6 +19,11 @@ apt install -y \
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git
 
+# setup vim folders and theme
+mkdir -p .vim/undodir
+mkdir .vim/colors
+mv dotfiles/wombat256.vim
+
 # copy dotfiles
 mv dotfiles/.aliases   ./
 mv dotfiles/.gitconfig ./

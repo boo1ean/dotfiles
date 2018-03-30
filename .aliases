@@ -1,6 +1,3 @@
-# Connect to mysql as root
-alias my="mysql -u root -proot"
-
 # Just shortcut for grep
 alias g="grep"
 
@@ -32,10 +29,10 @@ alias hosts='sudo vim /etc/hosts'
 alias lss='ls -lSah'
 
 # Show all groups
-alias sgroups="cat /etc/group | cut -d: -f1"
+alias show-groups="cat /etc/group | cut -d: -f1"
 
 # Show all users
-alias susers="cat /etc/passwd | cut -d: -f1"
+alias show-users="cat /etc/passwd | cut -d: -f1"
 
 # Git typo
 alias gi="git"
@@ -48,36 +45,15 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Init RVM
-alias uservm='[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
 
 ##### Docker #####
 
 # Kill all running containers.
 alias dockerkill='docker kill $(docker ps -a -q)'
  
-# Delete all stopped containers.
-alias dockercleanc='docker rm $(docker ps -a -q)'
- 
-# Delete all untagged images.
-alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
- 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
-
-# Edial all files with vim
-vimall() {
-	find . -name "$1" | xargs -o vim
-}
-
-alias vimall=vimall

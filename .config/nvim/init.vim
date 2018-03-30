@@ -9,11 +9,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
-
 " Set default encoding
 set fileencodings=utf8,cp1251
 set encoding=utf8
@@ -21,7 +16,7 @@ set encoding=utf8
 " Init Vundle
 filetype off
 set nocompatible
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -152,7 +147,7 @@ set showtabline=0
 
 " Enable undo history between sessions
 set undofile
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/undodir
 set undolevels=1000
 set undoreload=10000
 

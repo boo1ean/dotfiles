@@ -1,4 +1,4 @@
-## Some common configs for my environment
+## Tools
 
 * Shell - [zsh](http://www.zsh.org/) + [oh-my-zsh](http://ohmyz.sh/)
 * Window manager - [i3](https://i3wm.org/)

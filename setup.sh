@@ -60,10 +60,12 @@ mv dotfiles/.gitconfig ./
 mv dotfiles/.zshrc     ./
 mv dotfiles/.env       ./
 mv dotfiles/.z.sh      ./
-rm -rf dotfiles
 
 # setup vim
 mv dotfiles/.config/nvim/colors/wombat256.vim $VIM_HOME/colors/
 mv dotfiles/.config/nvim/init.vim $VIM_HOME/
+
+rm -rf dotfiles
+
 git clone https://github.com/VundleVim/Vundle.vim.git $VIM_HOME/bundle/Vundle.vim
 nvim +PluginInstall +qall && chown $SUDO_USER:$SUDO_USER -R ./ && echo 'IM FINE'

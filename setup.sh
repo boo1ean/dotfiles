@@ -46,7 +46,7 @@ git clone https://github.com/boo1ean/dotfiles.git
 mv dotfiles/.config/nvim/colors/wombat256.vim $VIM_HOME/colors/
 mv dotfiles/.config/nvim/init.vim $VIM_HOME/
 git clone https://github.com/VundleVim/Vundle.vim.git $VIM_HOME/bundle/Vundle.vim
-nvim +PluginInstall +qall
+nvim +PluginInstall +qall || true
 
 # setup i3
 mv dotfiles/.config/i3/* $I3_HOME/
@@ -57,6 +57,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # Install node version manager
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
+nvm install stable
 
 # copy dotfiles
 mv dotfiles/.aliases   ./

@@ -64,6 +64,9 @@ set guioptions-=L
 set guioptions-=r
 set guioptions-=b
 
+" use true color
+set termguicolors
+
 " Enable filetype plugins and disable vi compatibility
 filetype on
 filetype plugin on

@@ -14,15 +14,20 @@ apt install -y \
 	silversearcher-ag \
 	make \
 	g++ \
+	i3 \
 	docker.io \
 
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git
 
 # setup vim folders and theme
-mkdir -p .vim/undodir
-mkdir .vim/colors
-mv dotfiles/wombat256.vim
+mkdir -p ~/.vim/undodir
+mkdir ~/.vim/colors
+mv dotfiles/wombat256.vim ~/.vim/colors/
+
+# setup i3
+mkdir -p ~/.config/i3
+mv dotfiles/i3/* ~/.config/i3/
 
 # copy dotfiles
 mv dotfiles/.aliases   ./

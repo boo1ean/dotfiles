@@ -26,9 +26,11 @@ apt install -y \
 	zsh \
 	git \
 	silversearcher-ag \
+	htop \
 	make \
 	g++ \
 	scrot \
+	tree \
 	i3 \
 	xclip \
 	docker.io \

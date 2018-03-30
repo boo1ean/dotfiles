@@ -16,7 +16,7 @@ add-apt-repository ppa:neovim-ppa/stable
 
 apt update
 apt install -y \
-	curl \
+	python3.5 \
 	neovim \
 	zsh \
 	git \
@@ -25,6 +25,10 @@ apt install -y \
 	g++ \
 	i3 \
 	docker.io \
+
+curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+python3.5 get-pip.py
+rm get-pip.py
 
 # install configs
 git clone https://github.com/boo1ean/dotfiles.git

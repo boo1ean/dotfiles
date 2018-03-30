@@ -20,7 +20,7 @@ alias c="clear"
 alias sharef="python -m SimpleHTTPServer 8080"
 
 # Edit vimrc
-alias vimrc='vim ~/.vimrc'
+alias vimrc='vim ~/.config/nvim/init.vim'
 
 # Edit hosts file
 alias hosts='sudo vim /etc/hosts'
@@ -40,6 +40,8 @@ alias it=git
 alias gti=git
 alias vi=nvim
 alias vim=nvim
+
+alias python=python3.5
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."

@@ -34,6 +34,12 @@ alias show-groups="cat /etc/group | cut -d: -f1"
 # Show all users
 alias show-users="cat /etc/passwd | cut -d: -f1"
 
+# lang switchers
+alias ru='setxkbmap -layout "us, ru" -option "grp:caps_toggle"'
+alias ua='setxkbmap -layout "us, ru, ua" -option "grp:caps_toggle"'
+alias ру='setxkbmap -layout "us, ru" -option "grp:caps_toggle"'
+alias уа='setxkbmap -layout "us, ru, ua" -option "grp:caps_toggle"'
+
 # Git typo
 alias gi=git
 alias it=git

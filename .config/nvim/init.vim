@@ -20,10 +20,10 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'VundleVim/Vundle.vim'
 
-" snipmate deps
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'othree/html5.vim'
 Plugin 'gorkunov/smartpairs.vim'
 Plugin 'posva/vim-vue'
@@ -188,8 +188,8 @@ nnoremap k gk
 nnoremap gt :bn<cr>
 
 " Custom whitespaces and tabs view
-set list
-set listchars=trail:·,tab:··
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 " Set leader button
 let mapleader = ","

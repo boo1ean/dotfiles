@@ -50,6 +50,8 @@ alias vim=nvim
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+alias 1pas='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/1Password\ 4/1Password.exe'
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."

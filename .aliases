@@ -47,7 +47,8 @@ alias gti=git
 alias vi=nvim
 alias vim=nvim
 
-alias python=python3.5
+alias gd='git diff'
+alias gdc='git diff --cached'
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."

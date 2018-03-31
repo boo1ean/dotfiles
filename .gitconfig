@@ -24,13 +24,13 @@
 	old = red bold
 	new = green bold
 [diff]
-	tool = vimdiff
+	tool = vimdiff.nvim
 [web]
 	browser = google-chrome
 [github]
 	name = boo1ean
 	user = boo1ean
 [core]
-	pager = less -FR
+	pager = less
 	excludesfiles = .*.swo .*.swp
 	editor = vim

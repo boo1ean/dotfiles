@@ -22,7 +22,6 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required!
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'othree/html5.vim'
 Plugin 'gorkunov/smartpairs.vim'
@@ -32,9 +31,7 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'lepture/vim-css'
 Plugin 'godlygeek/tabular'
 Plugin 'Shougo/neocomplcache'
-Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'rstacruz/sparkup'
 Plugin 'tpope/vim-fugitive'
 Plugin 'matchit.zip'
 Plugin 'fholgado/minibufexpl.vim'
@@ -43,9 +40,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'lastpos.vim'
 Plugin 'ctrlp.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdtree'
 Plugin 'L9'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
@@ -223,12 +220,6 @@ nnoremap <silent> <Space> :set hlsearch! hlsearch?<cr>
 
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMapWindowNavVim = 1
-
-" Indent guides setup
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
 
 " Turn off auto working path feature (CtrlP)
 let g:ctrlp_working_path_mode = ''

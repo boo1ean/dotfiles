@@ -33,4 +33,4 @@
 [core]
 	pager = less
 	excludesfiles = .*.swo .*.swp
-	editor = vim
+	editor = nvim

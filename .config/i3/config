@@ -127,6 +127,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # Take screenshot
 bindsym --release Print exec scrot -s ~/screenshots/%Y-%m-%d_%H-%M-%S.png && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -t ~/screenshots/ | head -n1`
+bindsym End exec i3lock
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

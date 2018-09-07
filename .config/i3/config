@@ -116,7 +116,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym F1 exec chromium-browser
+bindsym F1 exec google-chrome
 bindsym F2 exec telegram-desktop
 bindsym F3 exec slack
 bindsym F4 exec wine ~/.wine/drive_c/Program\ Files\ \(x86\)/1Password\ 4/1Password.exe
@@ -131,7 +131,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Take screenshot
-bindsym --release Print exec scrot -s ~/screenshots/%Y-%m-%d_%H-%M-%S.png && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -t ~/screenshots/ | head -n1`
+
+bindsym --release Print exec import ~/screenshots/`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`.png && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -t ~/screenshots/ | head -n1`
 bindsym End exec i3lock
 
 # reload the configuration file

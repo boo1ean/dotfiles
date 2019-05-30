@@ -76,3 +76,7 @@ alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+# touchpad manager on MSI stealth gs65
+alias touchon="xinput enable `xinput list --id-only 'SynPS/2 Synaptics TouchPad'`"
+alias touchoff="xinput disable `xinput list --id-only 'SynPS/2 Synaptics TouchPad'`"

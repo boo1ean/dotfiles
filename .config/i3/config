@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -101,8 +101,6 @@ bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -116,10 +114,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym F1 exec google-chrome
+bindsym F1 exec google-chrome-stable
 bindsym F2 exec telegram-desktop
-bindsym F3 exec slack
-bindsym F4 exec wine ~/.wine/drive_c/Program\ Files\ \(x86\)/1Password\ 4/1Password.exe
+bindsym F3 exec blueman-manager
+bindsym F4 exec pavucontrol
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
@@ -133,7 +131,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # Take screenshot
 
 bindsym --release Print exec import ~/screenshots/`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`.png && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -t ~/screenshots/ | head -n1`
-bindsym End exec i3lock
+bindsym $mod+9 exec i3lock -c ffffff
+bindsym $mod+0 exec i3lock -c 000000
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -170,3 +169,8 @@ bar {
 
 exec setxkbmap  -layout "us, ru" -option "grp:caps_toggle"
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
+new_window 1pixel
+for_window [class="^.*"] border pixel 0
+
+# disable touchpad on msi stealth gs65
+exec xinput disable `xinput list --id-only 'SynPS/2 Synaptics TouchPad'`

@@ -49,11 +49,34 @@ let g:airline_theme='distinguished'
 Plug 'scrooloose/nerdtree'
 noremap  <silent> <leader>f :NERDTreeToggle<cr>
 
+" Comments utilities
+Plug 'scrooloose/nerdcommenter'
+
 " External syntax checker
 Plug 'vim-syntastic/syntastic'
 
-" Vue proper syntax stuff
+" Vue syntax stuff + hack for nerd commenter to work properly
 Plug 'posva/vim-vue'
+let g:vue_pre_processors = ['pug', 'scss']
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
 
 " Fuzzy files search also isntalled to the system
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -69,9 +92,6 @@ Plug 'ap/vim-css-color'
 
 " Allow % navigation for html tags, if-else and so on
 Plug 'andymass/vim-matchup'
-
-" Comments utilities
-Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 

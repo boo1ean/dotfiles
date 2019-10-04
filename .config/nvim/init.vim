@@ -80,6 +80,7 @@ endfunction
 
 " Fuzzy files search also isntalled to the system
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+nnoremap <silent> <C-t> :FZF<cr>
 
 " Allows repeat `.` operations for vim-surround plugin
 Plug 'tpope/vim-repeat'

@@ -52,8 +52,8 @@ noremap  <silent> <leader>f :NERDTreeToggle<cr>
 " Comments utilities
 Plug 'scrooloose/nerdcommenter'
 
-" External syntax checker
-Plug 'vim-syntastic/syntastic'
+" Code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Vue syntax stuff + hack for nerd commenter to work properly
 Plug 'posva/vim-vue'

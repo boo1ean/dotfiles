@@ -50,9 +50,10 @@ mv dotfiles/.config/i3/* $I3_HOME/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install node version manager
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
-nvm install stable
+curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
+export PATH=/home/kmenux/.fnm:$PATH
+eval "`fnm env --multi`"
+fnm install 12
 
 # copy dotfiles
 mv dotfiles/.aliases   ./

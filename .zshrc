@@ -25,7 +25,11 @@ source $HOME/.env
 source $HOME/.z.sh
 
 # Node version manager setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use stable
+export PATH=/home/kmenux/.fnm:$PATH
+eval "`fnm env --multi`"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

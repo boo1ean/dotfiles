@@ -28,6 +28,9 @@ noremap <silent> <leader>u :UndotreeToggle<cr>
 " Return to the recent active position on file open
 Plug 'vim-scripts/lastpos.vim'
 
+" Pug syntax highlight
+Plug 'digitaltoad/vim-pug'
+
 " Highligh trailing whitespaces and provide strip util
 Plug 'ntpeters/vim-better-whitespace'
 let g:strip_whitespace_on_save = 1
@@ -80,6 +83,7 @@ endfunction
 
 " Fuzzy files search also isntalled to the system
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 nnoremap <silent> <C-t> :FZF<cr>
 
 " Allows repeat `.` operations for vim-surround plugin
@@ -103,6 +107,9 @@ call plug#end()
 " Set tab and indent size
 set tabstop=4
 set shiftwidth=4
+
+" Allow switch buffers without saving
+set hidden
 
 " Enable syntax and line numbering
 syntax on
